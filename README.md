@@ -4,7 +4,7 @@
 ## Install
 
 ```
-$ go get github.com/multiprocessio/httpmirror@latest
+$ go install github.com/multiprocessio/httpmirror@latest
 ```
 
 ## Usage
