@@ -13,10 +13,14 @@ func mirrorHandler(writer http.ResponseWriter, request *http.Request) {
 func main() {
 	// Port is last argument
 	port := "8080"
-	for _, arg := range os.Args {
+	for _, arg := range os.Args[1:] {
 		port = arg
 	}
+
 	log.Println("Listening on :" + port)
 	http.HandleFunc("/", mirrorHandler)
-	http.ListenAndServe(":"+port, nil)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
